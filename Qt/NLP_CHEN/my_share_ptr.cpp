@@ -8,15 +8,7 @@ my_share_ptr::my_share_ptr()
 void my_share_ptr::start() {
     int i = 10;
     while(i--) {
-        mode_ptr_->run(this);
+        mode_ptr_->operation(this);
     }
 }
 
-void report(std::shared_ptr<Mode> ptr)
-{
-    if (ptr) {
-        std::cout << "*ptr=" << ptr. << "\n";
-    } else {
-        std::cout << "ptr is not a valid pointer.\n";
-    }
-}

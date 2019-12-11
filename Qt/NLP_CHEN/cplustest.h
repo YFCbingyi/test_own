@@ -16,6 +16,7 @@ class my_json;
 class my_vector;
 class my_fstream;
 class my_share_ptr;
+class my_string;
 namespace mycplus {
 //    class cplustest;
     class cplustest
@@ -113,6 +114,10 @@ namespace mycplus {
     private:
         my_share_ptr *msptr_;
         void my_share_ptr_test();
+
+    private:
+        my_string *mstr_;
+        void my_string_test();
 
     private:
         void cplusarray();

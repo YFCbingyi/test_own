@@ -15,8 +15,7 @@ public:
             mode_ptr_.reset();
         mode_ptr_ = st;
     }
-private:
-    void report(std::shared_ptr<Mode> ptr);
+
 private:
     std::shared_ptr<Mode> mode_ptr_;
 };

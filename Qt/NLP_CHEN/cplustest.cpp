@@ -12,11 +12,12 @@
 #include "my_vector.h"
 #include "my_fstream.h"
 #include "my_share_ptr.h"
+#include "my_string.h"
 
 using namespace mycplus;
 
 void cplustest::test(){
-    my_share_ptr_test();
+    my_string_test();
 }
 
 void cplustest::bind_test() {
@@ -217,4 +218,9 @@ void cplustest::my_fstream_test() {
 void cplustest::my_share_ptr_test() {
     msptr_ = new my_share_ptr;
     msptr_->start();
+}
+
+void cplustest::my_string_test() {
+    mstr_ = new my_string;
+    mstr_->start();
 }
