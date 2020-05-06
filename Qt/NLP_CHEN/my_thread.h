@@ -10,10 +10,11 @@
 #include <vector>
 #include <queue>
 #include <functional>
-
+#include "testbase.h"
 using namespace std;
 
-class MyThreadPool{
+class MyThreadPool
+{
 public:
     using Task =  std::function<void()>;
     explicit MyThreadPool(int num) : _threadNum_(num),_is_running_(false) {
@@ -77,11 +78,11 @@ private:
     std::queue<Task> _tasks_;
 };
 
-class my_thread
+class my_thread : public TestBase
 {
 public:
     my_thread();
-    void start();
+    void test();
 private:
     enum status_{
         NORMAL,

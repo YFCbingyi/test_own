@@ -47,7 +47,12 @@ SOURCES += \
     my_fstream.cpp \
     my_share_ptr.cpp \
     normalmode.cpp \
-    planmode.cpp
+    planmode.cpp \
+    my_string.cpp \
+    my_resolver.cpp \
+    testbase.cpp \
+    cpluselevennewfeaturetest.cpp \
+    timer.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -74,13 +79,20 @@ HEADERS += \
     my_json.h \
     my_fstream.h \
     my_share_ptr.h \
-    mode.h
+    mode.h \
+    my_string.h \
+    my_resolver.h \
+    testbase.h \
+    comdata.h \
+    cpluselevennewfeaturetest.h \
+    comm.h \
+    timer.h
 
 FORMS += \
         mainwindow.ui \
     form.ui \
     uipython.ui
-LIBS += -ljsoncpp -lcurl -lpthread -lsqlite3
+LIBS += -ljsoncpp -lcurl -lpthread -lsqlite3 -lpython2.7
 
 CONFIG += C++14
 

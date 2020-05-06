@@ -7,6 +7,7 @@
 #include <sys/wait.h>
 #include <jsoncpp/json/json.h>
 #include <iostream>
+#include <unistd.h>
 
 myServer::myServer(QWidget *parent) :
     QWidget(parent),
@@ -24,6 +25,7 @@ void myServer::on_start_clicked()
     ui->start->setDisabled(true);
     if(get_socket(ui->port->text().toInt())) {
         is_connected_  = true;
+        recv_thd_ = std::thread(&myServer::thd_recv, this);
     } else {
         ui->start->setEnabled(true);
     }
@@ -104,4 +106,75 @@ void myServer::print_json_data(std::string &str) {
     } catch(std::exception &e) {
         qDebug("CLOUD_CLIENT : exception : %s",e.what());
     }
+}
+
+void myServer::thd_recv() {
+    char buf[1024];
+    while (is_connected_) {
+        bzero(buf,sizeof(buf));
+        int size = ::recv(socketfd_,buf,sizeof(buf)-1,0);
+        if(size > 0) {
+            std::string msg = buf;
+            std::cout <<"recv msg : " <<msg << std::endl;
+            parse(msg);
+        }
+    }
+}
+
+void myServer::parse(std::string &data) {
+    Json::Value root;
+    Json::Reader reader;
+    try {
+        if(reader.parse(data, root)) {
+            if(root["cmd"].asString().compare("change_page") == 0) {
+                std::string param = root["res"]["param"].asString();
+                compose(param);
+            }
+        }
+    } catch(std::exception &e) {
+        qDebug("CLOUD_CLIENT : exception : %s",e.what());
+    }
+}
+
+void myServer::compose(std::string &param) {
+    Json::Value root;
+    root["sender"] = "ui";
+    root["ts"] = 0;
+    root["id"] = "100001";
+    root["cmd"] = "get_number";
+    Json::Value content;
+    if(param == "major") {
+        content["action"] = "opt_major";
+        content["id"] = 1;
+//        content["subname"] = "社会保险";
+        root["params"] = content;
+    } else if (param == "minor") {
+        content["action"] = "opt_minor";
+        content["id"] = 2;
+//        content["subname"] = "事业保险";
+        root["params"] = content;
+    } else if (param == "read_identity"){
+        content["action"] = "opt_input_identity";
+        root["params"] = content;
+    } else if (param == "input_identity") {
+        content["action"] = "get_identity";
+        content["number"] = "142202199511100628";
+        root["params"] = content;
+    } else if (param == "input_phone") {
+        content["action"] = "get_phone";
+        content["number"] = "15611769175";
+        root["params"] = content;
+    } else if (param == "success") {
+        content["action"] = "cancel";
+        root["params"] = content;
+    } else if (param == "error") {
+        content["action"] = "cancel";
+        root["params"] = content;
+    }
+    Json::FastWriter jwriter;
+    std::string msg = jwriter.write(root);
+    ::sleep(2);
+    std::cout << " send msg "<< msg << std::endl;
+    if(send(socketfd_, msg.c_str(), msg.length(), 0) == -1)
+        std::cout << "send error" << std::endl;
 }

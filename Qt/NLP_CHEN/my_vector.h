@@ -5,14 +5,44 @@
 #include <algorithm>
 #include <regex>
 #include "debug_log.h"
-
-class my_vector
+#include "testbase.h"
+#define STR(R) #R
+class my_vector : public TestBase
 {
 public:
     my_vector();
-    void start() {
-        my_float32_vector();
+    void test() {
+        find();
+//        create_items();
+//        find_items();
     }
+private:
+    struct Item
+    {
+        std::string name;
+        int id;
+    };
+    std::vector<struct Item> items_;
+    void create_items() {
+        struct Item it;
+        it.id = 2;
+        it.name = "chen";
+        items_.push_back(it);
+        struct Item it1;
+        it1.id = 12;
+        it1.name = "bingyi";
+        items_.push_back(it1);
+    }
+    void find_items() {
+        for(auto t = items_.begin();t != items_.end();t++) {
+            if(t->id == 12) {
+                LOG(INFO) << "id " <<t->id << " name "<< t->name;
+            }
+        }
+    }
+private:
+    //找到vector中是否有某个num
+    void find();
 
 private:
     void get_new_plan() {

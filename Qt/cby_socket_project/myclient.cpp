@@ -26,10 +26,12 @@ void myClient::on_start_clicked()
     if(tx == "start") {
         std::string address = ui->address->text().toStdString();
         int port = ui->port->text().toInt();
-        if(sockfd_ = get_client(address,port) > 0) {
+        sockfd_ = get_client(address,port);
+        if(sockfd_ > 0) {
             ui->address->setDisabled(true);
             ui->port->setDisabled(true);
             ui->start->setText("stop");
+            recv_thd_ = std::thread(&myClient::thd_recv, this);
         }
     } else if(tx == "stop") {
         if(sockfd_ > 0)
@@ -59,4 +61,24 @@ int myClient::get_client(std::string &address,int port) {
             return -1;
         }
         return sockfd;
+}
+
+void myClient::on_pushButton_clicked()
+{
+    std::string data = ui->lineEdit->text().toStdString();
+    std::cout << "send "<<data <<" sockfd " << sockfd_ << std::endl;
+    if(send(sockfd_, data.c_str(), data.length(), 0) == -1)
+        qDebug("send error");
+    ui->lineEdit->clear();
+}
+void myClient::thd_recv() {
+    char buf[1024];
+    while (true) {
+        bzero(buf,sizeof(buf));
+        int size = ::recv(sockfd_,buf,sizeof(buf)-1,0);
+        if(size > 0) {
+            std::string msg = buf;
+            std::cout <<"recv msg : " <<msg << std::endl;
+        }
+    }
 }

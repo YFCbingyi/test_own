@@ -13,11 +13,20 @@
 #include "my_fstream.h"
 #include "my_share_ptr.h"
 #include "my_string.h"
-
+#include "my_resolver.h"
+#include <python2.7/Python.h>
+#include "testbase.h"
+#include "cpluselevennewfeaturetest.h"
 using namespace mycplus;
 
 void cplustest::test(){
-    my_string_test();
+   cplusTest();
+}
+
+// C++11 新特性测试
+void cplustest::cplusTest() {
+    test_ptr_ = std::make_shared<CPlusElevenNewFeatureTest>();
+    test_ptr_->test();
 }
 
 void cplustest::bind_test() {
@@ -181,46 +190,91 @@ void cplustest::myjson_test() {
 }
 
 void cplustest::my_template_test() {
-    mtemplate_ = new my_template;
-    mtemplate_->run();
+    test_ptr_ = std::make_shared<my_template>();
+    test_ptr_->test();
 }
 
 void cplustest::my_thread_test() {
-    mthd_ = new my_thread;
-    mthd_->start();
+    test_ptr_ = std::make_shared<my_thread>();
+    test_ptr_->test();
 }
 
 void cplustest::my_theta_test() {
-    mthe_ = new my_theta;
-    mthe_->start();
+    test_ptr_ = std::make_shared<my_theta>();
+    test_ptr_->test();
 }
 
 void cplustest::my_time_test() {
-    mtime_ = new my_time;
-    mtime_->start();
+    test_ptr_ = std::make_shared<my_time>();
+    test_ptr_->test();
 }
 
 void cplustest::my_json_test() {
-    mjson_ = new my_json;
-    mjson_->start();
+    test_ptr_ = std::make_shared<my_json>();
+    test_ptr_->test();
 }
 
 void cplustest::my_vector_test() {
-    mvec_ = new my_vector;
-    mvec_->start();
+    test_ptr_ = std::make_shared<my_vector>();
+    test_ptr_->test();
 }
 
 void cplustest::my_fstream_test() {
-    mfeam_ = new my_fstream;
-    mfeam_->start();
+    test_ptr_ = std::make_shared<my_fstream>();
+    test_ptr_->test();
 }
 
 void cplustest::my_share_ptr_test() {
-    msptr_ = new my_share_ptr;
-    msptr_->start();
+    test_ptr_ = std::make_shared<my_share_ptr>();
+    test_ptr_->test();
 }
 
 void cplustest::my_string_test() {
-    mstr_ = new my_string;
-    mstr_->start();
+    test_ptr_ = std::make_shared<my_string>();
+    test_ptr_->test();
+}
+
+void cplustest::my_python_test() {
+//    std::string cmd = "python /home/cby/rsData/log/analysisLog.py";
+//    run_cmd(cmd);
+    Py_Initialize();//使用python之前，要调用Py_Initialize();这个函数进行初始化
+        PyRun_SimpleString("import sys");
+//        PyRun_SimpleString("sys.argv[20200101,20200110]");
+//        PyRun_SimpleString("sys.path.append('.//home/cby/rsData/log/')");
+        if (PyRun_SimpleString("execfile('/home/cby/rsData/log/analysisLog.py')") == NULL)
+            {
+//                return -1;
+            }
+//        PyObject * pModule = NULL;//声明变量
+//        PyObject * pFunc = NULL;// 声明变量
+//        pModule =PyImport_ImportModule("analysisLog.py");//这里是要调用的文件名
+//        pFunc= PyObject_GetAttrString(pModule, "hello");//这里是要调用的函数名
+//        PyEval_CallObject(pFunc, NULL);//调用函数
+        Py_Finalize();//调用Py_Finalize，这个根Py_Initialize相对应的。
+//        return 0;
+}
+
+bool cplustest::run_cmd(std::string &cmd) {
+    pid_t status;
+    status = ::system(cmd.c_str());
+    if(status == -1) {
+        return false;
+    } else {
+        if(WIFEXITED(status)){
+            if(0 == WEXITSTATUS(status)){
+                return true;
+            }else{
+                printf("run failed %d \n",WEXITSTATUS(status));
+                return false;
+            }
+        }else{
+            printf("exit code %d \n",WEXITSTATUS(status));
+            return false;
+        }
+    }
+}
+
+void cplustest::my_resolver_test() {
+    test_ptr_ = std::make_shared<my_resolver>();
+    test_ptr_->test();
 }

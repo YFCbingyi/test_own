@@ -5,15 +5,40 @@
 #include <unistd.h>
 #include <string>
 #include <vector>
-
-class my_time
+#include <chrono>
+#include "testbase.h"
+class my_time : public TestBase
 {
 public:
     my_time();
-    void start() {
+    void start_1() {
         init(5);
         plan_list_index_ =  get_plan_list_index();
         std::cout <<" index " <<plan_list_index_ << std::endl;
+    }
+
+    void test() {
+        get_data();
+    }
+private:
+    void get_data() {
+        time_t now;
+        time(&now);
+        tm *ltm = localtime(&now);
+        int year = ltm->tm_year;
+        int day = ltm->tm_mday;
+        int month = ltm->tm_mon;
+        std::cout << year << "-" << month << "-" << day << std::endl;
+    }
+    
+private:
+    std::time_t get_timestamp_ms()
+    {
+        std::chrono::time_point<std::chrono::system_clock,std::chrono::milliseconds> tp = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::system_clock::now());
+        auto tmp=std::chrono::duration_cast<std::chrono::milliseconds>(tp.time_since_epoch());
+        std::time_t timestamp = tmp.count();
+        //std::time_t timestamp = std::chrono::system_clock::to_time_t(tp);
+        return timestamp;
     }
 
 private:

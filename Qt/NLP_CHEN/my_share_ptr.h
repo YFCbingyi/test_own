@@ -4,12 +4,13 @@
 #include <iostream>
 #include <memory>
 
+#include "testbase.h"
 class Mode;
-class my_share_ptr
+class my_share_ptr : public TestBase
 {
 public:
     my_share_ptr();
-    void start();
+    void test();
     void set_mode(std::shared_ptr<Mode> st) {
         if(mode_ptr_ != nullptr)
             mode_ptr_.reset();

@@ -7,16 +7,10 @@
 #include <thread>
 #include <cmath>
 #include "debug_log.h"
+#include <memory>
 
-class my_theta;
-class my_thread;
-class my_template;
-class my_time;
-class my_json;
-class my_vector;
-class my_fstream;
-class my_share_ptr;
-class my_string;
+
+class TestBase;
 namespace mycplus {
 //    class cplustest;
     class cplustest
@@ -25,6 +19,10 @@ namespace mycplus {
         cplustest(){std::cout << "构造函数" << std::endl;}
         ~cplustest(){std::cout << "析构函数" << std::endl;}
         void test();
+
+    private:
+        void my_python_test();
+        bool run_cmd(std::string &cmd) ;
 
     private:
         void my_bool_test(bool &flag) {
@@ -88,36 +86,17 @@ namespace mycplus {
         void compare_str();
 
     private:
-        my_theta *mthe_;
         void my_theta_test();
-
-    private:
-        my_thread *mthd_;
         void my_thread_test();
-
-    private:
-        my_time *mtime_;
         void my_time_test();
-
-    private:
-        my_json *mjson_;
         void my_json_test();
-
-    private:
-        my_vector *mvec_;
         void my_vector_test();
-
-    private:
-        my_fstream *mfeam_;
         void my_fstream_test();
-
-    private:
-        my_share_ptr *msptr_;
         void my_share_ptr_test();
-
-    private:
-        my_string *mstr_;
         void my_string_test();
+        void my_resolver_test();
+        // C++11 新特性测试
+        void cplusTest();
 
     private:
         void cplusarray();
@@ -129,7 +108,6 @@ namespace mycplus {
         void show_timeout(){std::cout << " It is time out "<<std::endl;}
 
         mybind *mbind_;
-        my_template *mtemplate_;
     private:
         typedef struct {
             int cmd;
@@ -141,6 +119,8 @@ namespace mycplus {
         BlockQueue<Event>  bq_;
         std::thread thd1_;
         std::thread thd2_;
+        
+        std::shared_ptr<TestBase> test_ptr_;
     };
 }
 

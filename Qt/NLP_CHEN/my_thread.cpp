@@ -7,7 +7,7 @@ my_thread::my_thread()
 
 }
 
-void my_thread::start() {
+void my_thread::test() {
     std::promise<int> promise_obj;
     std::future<int> future_obj = promise_obj.get_future();
     thd_ = thread(&my_thread::run,this,std::ref(promise_obj));

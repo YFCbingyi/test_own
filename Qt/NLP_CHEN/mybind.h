@@ -1,7 +1,8 @@
-#ifndef MYBIND_H
+﻿#ifndef MYBIND_H
 #define MYBIND_H
 #include <functional>
 #include <jsoncpp/json/json.h>
+
 class mybind
 {
 public:

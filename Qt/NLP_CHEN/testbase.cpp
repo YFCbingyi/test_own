@@ -1,6 +1,9 @@
-#include "testbase.h"
+﻿#include "testbase.h"
 
 TestBase::TestBase()
 {
+    
+}
+TestBase::~TestBase() {
     
 }

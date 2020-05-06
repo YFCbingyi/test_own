@@ -12,4 +12,5 @@ void my_template::run() {
     double c = 1.23,d = 2.42;
     swap(c,d);
     LOG(INFO) << c << " - "<<d;
+
 }

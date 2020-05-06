@@ -6,7 +6,11 @@ my_fstream::my_fstream()
 
 }
 
-void my_fstream::my_fstream_test() {
+my_fstream::~my_fstream() {
+    
+}
+
+void my_fstream::test() {
     request_new_mode(MD_LINE,2);
     if(bq_.size() > 0) {
         EventData* eq;
@@ -15,6 +19,7 @@ void my_fstream::my_fstream_test() {
         LOG(INFO) <<"id "<<static_cast<InitData*>(eq->data)->id;
     }
 }
+
 
 int my_fstream::read_fstream_int() {
     std::fstream f;

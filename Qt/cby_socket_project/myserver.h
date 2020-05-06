@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <atomic>
+#include <thread>
 #define BACKLOG 10 /*多少等待连接控制*/
 
 namespace Ui {
@@ -23,6 +24,9 @@ private:
 
     void print_json_data(std::string &str);
 
+    void thd_recv();
+    void parse(std::string &data);
+    void compose(std::string &param);
 private slots:
     void on_start_clicked();
 
@@ -32,6 +36,7 @@ private:
     Ui::myServer *ui;
     int socketfd_;
     std::atomic<bool> is_connected_;
+    std::thread recv_thd_;
 };
 
 #endif // MYSERVER_H

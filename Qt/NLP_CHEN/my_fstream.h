@@ -3,11 +3,16 @@
 #include <iostream>
 #include <fstream>
 #include <jsoncpp/json/json.h>
+#include "testbase.h"
 
-class my_fstream
+class my_fstream : public TestBase
 {
 public:
     my_fstream();
+    ~my_fstream();
+    
+    virtual void test();
+    
     enum Mode {
         MD_NONE = 0,
         MD_VISIT,
@@ -27,11 +32,7 @@ public:
     typedef struct {
         int id;
     }InitData;
-    void start() {
-        my_fstream_test();
-    }
-private:
-    void my_fstream_test();
+    
 private:
     Json::Value read_fstream_str();
     void write_fstream_str(Json::Value &str);

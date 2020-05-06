@@ -1,5 +1,9 @@
 ﻿#include "my_string.h"
 #include <exception>
+#include <fcntl.h>
+#include <cstdio>
+#include <cstdlib>
+#include "debug_log.h"
 
 my_string::my_string()
 {
@@ -12,17 +16,17 @@ my_string::my_string()
  * return: vector容器
 */
 std::vector<std::string> my_string::split_string(std::string src, const std::string &split_string) {
+    std::vector<std::string> gstr;
     try{
-        std::vector<std::string> gstr;
         while(src.find_first_of(split_string) != std::string::npos) {
             gstr.push_back(src.substr(0,src.find_first_of(split_string)));
             src.erase(0,src.find_first_of(split_string)+split_string.length());
         }
         gstr.push_back(src);
-        return gstr;
     }catch(std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
+    return gstr;
 }
 /*
  * function:获取随机字符串,根据splitter分割res字符串
@@ -74,10 +78,31 @@ std::string my_string::get_random_speech(std::string &src,std::string &splitter)
  * sub:替代字符串
 */
 std::string my_string::get_full_speech(std::string &src,const std::string &tem,std::string &sub) {
-    std::string res;
-    if(src.find(tem.c_str()) != std::string::npos) {
-        src.replace(src.find(tem.c_str()),tem.length(),sub);
+    std::string res = src;
+    if(res.find(tem.c_str()) != std::string::npos) {
+        res.replace(res.find(tem.c_str()),tem.length(),sub);
     }
-    res = src;
     return res;
+}
+
+my_string::RobotType my_string::robot_type() {
+    char *p;
+    p = ::getenv("RS_ROBOT");
+    printf("conf %s",p);
+    if(p == nullptr)
+        return T_DEFAULT;
+    std::string type = std::string(p);
+    std::cout << type << std::endl;
+    if(type.find("chenxing") != std::string::npos)
+        return T_XIAORUI;
+    else if(type.find("csj_xiaoxue") != std::string::npos)
+        return T_XIAOXUE;
+    else if(type.find("csj_alice") != std::string::npos)
+        return T_ALICE;
+    return T_DEFAULT;
+}
+
+
+void my_string::getWindowName(const std::string &str, std::string &src)  {  
+    src = (src.length() > str.length()) ? ((src.substr(0,str.length()) == str) ? src.substr(str.length(),src.length()) : src) : src;
 }

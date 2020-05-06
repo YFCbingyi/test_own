@@ -9,7 +9,7 @@ my_theta::my_theta()
 
 }
 
-void my_theta::start() {
+void my_theta::test() {
     LineAngle1();
     LineAngle2();
     LOG(INFO) << "两条直线角度差:" << fabs(lineA.deg-lineB.deg);

@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "cplustest.h"
 #include <QApplication>
 #include "debug_log.h"
@@ -30,6 +30,16 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 //    MainWindow w;
 //    w.show();
+
+    std::string log_info ="/home/cby/111";
+    std::string log_warning = "/home/cby/222";
+    std::string log_error = "/home/cby/error_data";
+    std::cout << " info " <<log_info
+              << " warn " <<log_warning
+              << " error " <<log_error
+              <<std::endl;
+//    initLogger(log_info,log_warning,log_error);
+
     mycplus::cplustest *cplus
             = new mycplus::cplustest();
     cplus->test();
