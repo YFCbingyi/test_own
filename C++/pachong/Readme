@@ -1,0 +1,5 @@
+g++ main.cc Reptile.cc -o test -std=c++11 -lcurl -lhtmlcxx
+
+使用之前安装htmlcxx
+
+sudo apt install libhtmlcxx-dev

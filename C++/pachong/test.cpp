@@ -2,7 +2,7 @@
 	> File Name: test.cpp
 	> Author: 
 	> Mail: 
-	> Created Time: 2020年05月06日 星期三 17时17分18秒
+	> Created Time: 2020�?05�?06�? 星期�? 17�?17�?18�?
  ************************************************************************/
 
 using namespace std;
@@ -45,9 +45,9 @@ size_t DownloadFile(void * p_data, size_t size, size_t nmemb, void * stream)
     return size * nmemb;
 }
  
-int main()
+int mainmmm()
 {
-    // 初始化libcurl
+    // 初�?�化libcurl
     curl_global_init(CURL_GLOBAL_ALL);
     std::string website_url = "";
     while (std::cin >> website_url)
@@ -67,7 +67,7 @@ int main()
             }
             else
             {
-                // 匹配图片的下载链接
+                // 匹配图片的下载链�?
                 std::regex regex_jpg("src=\"(.+?\\.jpg)\"");
                 std::string website_html_data = oss_website_html_data.str();
                 std::sregex_iterator sit(website_html_data.cbegin(), website_html_data.cend(), regex_jpg);

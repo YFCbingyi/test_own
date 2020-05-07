@@ -1,9 +1,10 @@
-#include "Reptile.h"
+﻿#include "Reptile.h"
 
 int main() {
 
+    
     Reptile t;
-    t.start("http://www.shuquge.com/txt/29786/6785122.html");
+    t.start("https://www.44txt.com/book/202004/wodedaoshenxitong.html");
 
     return 0;
 }
