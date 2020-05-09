@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include <string.h>
 
 void Hello(char* what) {
 

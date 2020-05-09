@@ -16,6 +16,7 @@ foreach( testsourcefile ${ALL_SOURCES} )
     string(REPLACE ".cxx" "" testname ${testname} )
     
     ADD_EXECUTABLE( ${testname} ${CMAKE_BINARY_DIR}/../${fileName} )
+    TARGET_LINK_LIBRARIES(${testname} -lpthread)
 endforeach(testsourcefile ${ALL_SOURCES} )
 
 
