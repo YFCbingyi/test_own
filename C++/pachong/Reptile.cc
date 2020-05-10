@@ -20,6 +20,8 @@ Reptile::~Reptile()
 
 void Reptile::start(const std::string &url)
 {
+    mainHtml_ptr_ = std::make_shared<HtmlPage>(url);
+    simHtml_ptr_ = std::make_shared<HtmlPage>(url);
     GetHtmlData(url);
 }
 
@@ -54,12 +56,12 @@ size_t Reptile::DownloadFile(void *p_data, size_t size, size_t nmemb, void *stre
     return size * nmemb;
 }
 
-void Reptile::ParserHtml(const std::string &data)
+void Reptile::ParserMainHtml(const std::string &data)
 {
-    ofstream file;
-    file.open("name.txt");
-    file << data << endl;
-    file.close();
+    // ofstream file;
+    // file.open("name.txt");
+    // file << data << endl;
+    // file.close();
     htmlcxx::HTML::ParserDom parser;
     tree<HTML::Node> dom = parser.parseTree(data);
     // cout << dom << endl;
@@ -68,36 +70,60 @@ void Reptile::ParserHtml(const std::string &data)
     {
         if (t->isTag())
         {
-            // std::cout <<"-->" <<t->text() << std::endl;
-            if (t->text().find("downButton") != std::string::npos || t->text().find(".rar") != std::string::npos)
+            // std::cout << t->text() << " is tag" << std::endl;
+            t->parseAttributes();
+            if (!t->attribute("href").first)
             {
-                t->parseAttributes();
-                if(!t->attribute("class").first || !t->attribute("href").first)
-                {
-                    continue;
-                }
-                if(t->attribute("class").second == "downButton") {
-                    std::string hh = t->attribute("href").second;
-                    std::cout << hh << endl;    
-                }
+                continue;
             }
-            else
+            if (t->attribute("href").second.find(".html") != std::string::npos && t->attribute("href").second.find("manhua") != std::string::npos)
             {
-                
+                std::string hh = t->attribute("href").second;
+                // std::cout << hh.substr(13,hh.length()) << std::endl;
+                std::string houzhui = hh.substr(13,hh.length());
+                simHtml_ptr_->addHouzhui(houzhui);
+                simHtml_ptr_->GetData();
+                break;
             }
         }
-        // if(strcasecmp(t->tagName().c_str(), "h1") == 0) {
-        //     t+=1;
-        //     std::cout << t->text() << std::endl;
-        //     if(t->isComment()) {
-        //         std::cout << "is comment" << std::endl;
-        //     }
-        //     if(t->isTag()) {
-        //         std::cout << "is tag "<< std::endl;
-        //     }
-        // }
+        else if (t->isComment())
+        {
+            // std::cout << t->text() << " is comment" << std::endl;
+        }
+        else
+        {
+            // std::cout << t->text() << " is nothing" << std::endl;
+        }
     }
 }
+// std::cout <<"-->" <<t->text() << std::endl;
+// if (t->text().find("downButton") != std::string::npos || t->text().find(".rar") != std::string::npos)
+// {
+//     t->parseAttributes();
+//     if(!t->attribute("class").first || !t->attribute("href").first)
+//     {
+//         continue;
+//     }
+//     if(t->attribute("class").second == "downButton") {
+//         std::string hh = t->attribute("href").second;
+//         std::cout << hh << endl;
+//     }
+// }
+// else
+// {
+
+// }
+
+// if(strcasecmp(t->tagName().c_str(), "h1") == 0) {
+//     t+=1;
+//     std::cout << t->text() << std::endl;
+//     if(t->isComment()) {
+//         std::cout << "is comment" << std::endl;
+//     }
+//     if(t->isTag()) {
+//         std::cout << "is tag "<< std::endl;
+//     }
+// }
 
 void Reptile::GetHtmlData(const std::string &url)
 {
@@ -110,13 +136,9 @@ void Reptile::GetHtmlData(const std::string &url)
         // 保存网页html数据
         // std::ostringstream oss_website_html_data;
         std::string oss_website_html_data;
-        // struct curl_slist *head = NULL;
-        // head = curl_slist_append(head, "Content-Type: application/x-www-form-urlencoded; charset=UTF-8");
         curl_easy_setopt(p_curl, CURLOPT_URL, website_url.c_str());
         curl_easy_setopt(p_curl, CURLOPT_WRITEDATA, &oss_website_html_data);
         curl_easy_setopt(p_curl, CURLOPT_WRITEFUNCTION, SaveWebsiteHtmlData);
-        // curl_easy_setopt(p_curl, CURLOPT_HTTPHEADER, head);
-        // curl_easy_setopt(p_curl, CURLOPT_ENCODING, 'gzip,deflate');
         CURLcode curl_code = curl_easy_perform(p_curl);
         if (curl_code != CURLE_OK)
         {
@@ -124,11 +146,7 @@ void Reptile::GetHtmlData(const std::string &url)
         }
         else
         {
-            // 匹配图片的下载链接
-            // std::cout <<" 最后" <<oss_website_html_data << std::endl;
-            // std::string website_html_data = oss_website_html_data.str();
-            // std::string str = UTF8toGBK(oss_website_html_data);
-            ParserHtml(oss_website_html_data);
+            ParserMainHtml(oss_website_html_data);
         }
         curl_easy_cleanup(p_curl);
     }

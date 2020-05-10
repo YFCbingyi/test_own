@@ -4,7 +4,7 @@ int main() {
 
     
     Reptile t;
-    t.start("https://www.44txt.com/book/202004/wodedaoshenxitong.html");
+    t.start("https://mhd366.com/html/manhua/");
 
     return 0;
 }
