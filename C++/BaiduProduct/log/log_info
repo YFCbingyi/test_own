@@ -1,0 +1,327 @@
+Fri Apr 12 17:36:54 2019
+function (main) line 24 deploy func is :update
+Fri Apr 12 17:36:55 2019
+function (main) line 39 get access token success
+Fri Apr 12 17:36:55 2019
+function (main) line 68 request {
+   "botId" : 24927,
+   "modelVersion" : "103",
+   "region" : "bj"
+}
+
+Fri Apr 12 17:36:55 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/updateModelVersion?access_token=24.566c61813e1d57b873eda69be8114ed7.2592000.1557653815.282335-15277778
+Fri Apr 12 17:36:55 2019
+function (main) line 75 json_ result {"result":{"deploymentId":"22041"},"error_msg":"ok","error_code":0}
+Fri Apr 12 17:36:55 2019
+function (main) line 83 deployment update success
+Fri Apr 12 17:36:55 2019
+function (set_deploymentId) line 224 deploymentid :22041
+Fri Apr 12 17:37:22 2019
+function (main) line 24 deploy func is :check
+Fri Apr 12 17:37:22 2019
+function (main) line 39 get access token success
+Fri Apr 12 17:37:22 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 22041
+}
+
+Fri Apr 12 17:37:22 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.efa53a498531ea157964e8cbd48d0519.2592000.1557653842.282335-15277778
+Fri Apr 12 17:37:23 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-04-12 17:36:55","modelVersion":"103","deploymentId":22041,"updateTime":"2019-04-12 17:36:55","region":"bj","deployStatus":"deploying"},"error_msg":"ok","error_code":0}
+Fri Apr 12 17:37:23 2019
+function (main) line 107 deployment getStatus success
+Fri Apr 12 18:36:55 2019
+function (main) line 24 deploy func is :check
+Fri Apr 12 18:36:56 2019
+function (main) line 39 get access token success
+Fri Apr 12 18:36:56 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 22041
+}
+
+Fri Apr 12 18:36:56 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.252837a68420957748ac3b1c7c070cb9.2592000.1557657416.282335-15277778
+Fri Apr 12 18:36:56 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-04-12 17:36:55","modelVersion":"103","deploymentId":22041,"updateTime":"2019-04-12 17:41:41","region":"bj","deployStatus":"finished"},"error_msg":"ok","error_code":0}
+Fri Apr 12 18:36:56 2019
+function (main) line 107 deployment getStatus success
+Mon Apr 22 12:35:50 2019
+function (main) line 24 deploy func is :update
+Mon Apr 22 12:35:50 2019
+function (main) line 39 get access token success
+Mon Apr 22 12:35:50 2019
+function (main) line 68 request {
+   "botId" : 24927,
+   "modelVersion" : "104",
+   "region" : "bj"
+}
+
+Mon Apr 22 12:35:50 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/updateModelVersion?access_token=24.15fe7b9e9f343dc5277d4dd0e97375b6.2592000.1558499750.282335-15277778
+Mon Apr 22 12:35:51 2019
+function (main) line 75 json_ result {"result":{"deploymentId":"28960"},"error_msg":"ok","error_code":0}
+Mon Apr 22 12:35:51 2019
+function (main) line 83 deployment update success
+Mon Apr 22 12:35:51 2019
+function (set_deploymentId) line 224 deploymentid :28960
+Mon Apr 22 12:36:03 2019
+function (main) line 24 deploy func is :check
+Mon Apr 22 12:37:06 2019
+function (main) line 24 deploy func is :check
+Mon Apr 22 12:37:06 2019
+function (main) line 39 get access token success
+Mon Apr 22 12:37:06 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 28960
+}
+
+Mon Apr 22 12:37:06 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.591c140a01bc89d25b28141e568d1e2f.2592000.1558499826.282335-15277778
+Mon Apr 22 12:37:06 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-04-22 12:35:51","modelVersion":"104","deploymentId":28960,"updateTime":"2019-04-22 12:35:51","region":"bj","deployStatus":"deploying"},"error_msg":"ok","error_code":0}
+Mon Apr 22 12:37:06 2019
+function (main) line 107 deployment getStatus success
+Mon Apr 22 13:30:05 2019
+function (main) line 24 deploy func is :check
+Mon Apr 22 13:30:05 2019
+function (main) line 39 get access token success
+Mon Apr 22 13:30:05 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 28960
+}
+
+Mon Apr 22 13:30:05 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.a087cd62f601376d36aae0e6b88501da.2592000.1558503005.282335-15277778
+Mon Apr 22 13:30:05 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-04-22 12:35:51","modelVersion":"104","deploymentId":28960,"updateTime":"2019-04-22 12:39:44","region":"bj","deployStatus":"finished"},"error_msg":"ok","error_code":0}
+Mon Apr 22 13:30:05 2019
+function (main) line 107 deployment getStatus success
+Wed May  8 12:00:46 2019
+function (main) line 24 deploy func is :update
+Wed May  8 12:00:47 2019
+function (main) line 39 get access token success
+Wed May  8 12:00:47 2019
+function (main) line 68 request {
+   "botId" : 24927,
+   "modelVersion" : "106",
+   "region" : "bj"
+}
+
+Wed May  8 12:00:47 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/updateModelVersion?access_token=24.da1f7bad4dfce427847c361067023db2.2592000.1559880047.282335-15277778
+Wed May  8 12:00:48 2019
+function (main) line 75 json_ result {"result":{"deploymentId":"37426"},"error_msg":"ok","error_code":0}
+Wed May  8 12:00:48 2019
+function (main) line 83 deployment update success
+Wed May  8 12:00:48 2019
+function (set_deploymentId) line 224 deploymentid :37426
+Wed May  8 12:00:51 2019
+function (main) line 24 deploy func is :check
+Wed May  8 12:00:52 2019
+function (main) line 39 get access token success
+Wed May  8 12:00:52 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 37426
+}
+
+Wed May  8 12:00:52 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.3da22ba55ad3f8dc7e339364f411f577.2592000.1559880052.282335-15277778
+Wed May  8 12:00:52 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-05-08 12:00:48","modelVersion":"106","deploymentId":37426,"updateTime":"2019-05-08 12:00:48","region":"bj","deployStatus":"deploying"},"error_msg":"ok","error_code":0}
+Wed May  8 12:00:52 2019
+function (main) line 107 deployment getStatus success
+Wed May  8 12:01:33 2019
+function (main) line 24 deploy func is :check
+Wed May  8 12:01:34 2019
+function (main) line 39 get access token success
+Wed May  8 12:01:34 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 37426
+}
+
+Wed May  8 12:01:34 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.f83af878af9b0d1ac69ad4638b04f174.2592000.1559880094.282335-15277778
+Wed May  8 12:01:34 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-05-08 12:00:48","modelVersion":"106","deploymentId":37426,"updateTime":"2019-05-08 12:00:48","region":"bj","deployStatus":"deploying"},"error_msg":"ok","error_code":0}
+Wed May  8 12:01:34 2019
+function (main) line 107 deployment getStatus success
+Wed May 15 18:25:15 2019
+function (main) line 24 deploy func is :update
+Wed May 15 18:25:16 2019
+function (main) line 39 get access token success
+Wed May 15 18:25:16 2019
+function (main) line 68 request {
+   "botId" : 24927,
+   "modelVersion" : "109",
+   "region" : "bj"
+}
+
+Wed May 15 18:25:16 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/updateModelVersion?access_token=24.4b023224e4aa25e673bf01381b8ec816.2592000.1560507916.282335-15277778
+Wed May 15 18:25:17 2019
+function (main) line 75 json_ result {"result":{"deploymentId":"40076"},"error_msg":"ok","error_code":0}
+Wed May 15 18:25:17 2019
+function (main) line 83 deployment update success
+Wed May 15 18:25:17 2019
+function (set_deploymentId) line 224 deploymentid :40076
+Wed May 15 18:25:28 2019
+function (main) line 24 deploy func is :check
+Wed May 15 18:25:30 2019
+function (main) line 39 get access token success
+Wed May 15 18:25:30 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 40076
+}
+
+Wed May 15 18:25:30 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.892c5c9b4588b2daf8b950626711cb2c.2592000.1560507930.282335-15277778
+Wed May 15 18:25:30 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-05-15 18:25:17","modelVersion":"109","deploymentId":40076,"updateTime":"2019-05-15 18:25:17","region":"bj","deployStatus":"deploying"},"error_msg":"ok","error_code":0}
+Wed May 15 18:25:30 2019
+function (main) line 107 deployment getStatus success
+Wed May 15 18:40:11 2019
+function (main) line 24 deploy func is :check
+Wed May 15 18:40:13 2019
+function (main) line 39 get access token success
+Wed May 15 18:40:13 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 40076
+}
+
+Wed May 15 18:40:13 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.eaaf650e2cc300f8af714542152a0359.2592000.1560508813.282335-15277778
+Wed May 15 18:40:14 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-05-15 18:25:17","modelVersion":"109","deploymentId":40076,"updateTime":"2019-05-15 18:28:00","region":"bj","deployStatus":"finished"},"error_msg":"ok","error_code":0}
+Wed May 15 18:40:14 2019
+function (main) line 107 deployment getStatus success
+Thu Jun 20 18:15:59 2019
+function (main) line 24 deploy func is :update
+Thu Jun 20 18:15:59 2019
+function (main) line 39 get access token success
+Thu Jun 20 18:15:59 2019
+function (main) line 68 request {
+   "botId" : 24927,
+   "modelVersion" : "110",
+   "region" : "bj"
+}
+
+Thu Jun 20 18:15:59 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/updateModelVersion?access_token=24.35f4fd52ac87f490b1126c2edbe89884.2592000.1563617759.282335-15277778
+Thu Jun 20 18:16:00 2019
+function (main) line 75 json_ result {"result":{"deploymentId":"43107"},"error_msg":"ok","error_code":0}
+Thu Jun 20 18:16:00 2019
+function (main) line 83 deployment update success
+Thu Jun 20 18:16:00 2019
+function (set_deploymentId) line 224 deploymentid :43107
+Thu Jun 20 18:16:17 2019
+function (main) line 24 deploy func is :check
+Thu Jun 20 18:16:17 2019
+function (main) line 39 get access token success
+Thu Jun 20 18:16:17 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 43107
+}
+
+Thu Jun 20 18:16:17 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.c5e36c4ce2c48462557264ad777ddb49.2592000.1563617777.282335-15277778
+Thu Jun 20 18:16:17 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-06-20 18:16:00","modelVersion":"110","deploymentId":43107,"updateTime":"2019-06-20 18:16:00","region":"bj","deployStatus":"deploying"},"error_msg":"ok","error_code":0}
+Thu Jun 20 18:16:17 2019
+function (main) line 107 deployment getStatus success
+Thu Jun 20 18:21:49 2019
+function (main) line 24 deploy func is :check
+Thu Jun 20 18:21:49 2019
+function (main) line 39 get access token success
+Thu Jun 20 18:21:49 2019
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 43107
+}
+
+Thu Jun 20 18:21:49 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.8986a1e61c9539cd43ffce4858427278.2592000.1563618109.282335-15277778
+Thu Jun 20 18:21:50 2019
+function (main) line 98 json_ result {"result":{"createTime":"2019-06-20 18:16:00","modelVersion":"110","deploymentId":43107,"updateTime":"2019-06-20 18:18:35","region":"bj","deployStatus":"finished"},"error_msg":"ok","error_code":0}
+Thu Jun 20 18:21:50 2019
+function (main) line 107 deployment getStatus success
+Mon Aug 12 15:43:22 2019
+function (main) line 24 deploy func is :add
+Mon Aug 12 15:43:22 2019
+function (main) line 39 get access token success
+Mon Aug 12 15:43:22 2019
+function (main) line 46 request {
+   "botId" : 40496,
+   "modelVersion" : "117",
+   "region" : "bj"
+}
+
+Mon Aug 12 15:43:22 2019
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/add?access_token=24.907ca6926c8e4ba10b15e4df28edf460.2592000.1568187802.282335-15277778
+Mon Aug 12 15:43:23 2019
+function (main) line 53 json_ result {"result":{"deploymentId":"85789"},"error_msg":"生产环境部署数量已超限，当前限额=1","error_code":292023}
+Fri Jan 10 17:24:40 2020
+function (main) line 24 deploy func is :update
+Fri Jan 10 17:24:41 2020
+function (main) line 39 get access token success
+Fri Jan 10 17:24:41 2020
+function (main) line 68 request {
+   "botId" : 24927,
+   "modelVersion" : "112",
+   "region" : "bj"
+}
+
+Fri Jan 10 17:24:41 2020
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/updateModelVersion?access_token=24.350383db5f5dcb77bc5c3d7a4aa44830.2592000.1581240281.282335-15277778
+Fri Jan 10 17:24:41 2020
+function (main) line 75 json_ result {"result":{"deploymentId":"43549"},"error_msg":"ok","error_code":0}
+Fri Jan 10 17:24:41 2020
+function (main) line 83 deployment update success
+Fri Jan 10 17:24:41 2020
+function (set_deploymentId) line 224 deploymentid :43549
+Fri Jan 10 17:25:46 2020
+function (main) line 24 deploy func is :check
+Fri Jan 10 17:25:47 2020
+function (main) line 39 get access token success
+Fri Jan 10 17:25:47 2020
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 43549
+}
+
+Fri Jan 10 17:25:47 2020
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.827ad7af4a26286d9058abe9e59b986a.2592000.1581240347.282335-15277778
+Fri Jan 10 17:25:47 2020
+function (main) line 98 json_ result {"result":{"createTime":"2020-01-10 17:24:41","modelVersion":"112","deploymentId":43549,"updateTime":"2020-01-10 17:24:41","region":"bj","deployStatus":"deploying"},"error_msg":"ok","error_code":0}
+Fri Jan 10 17:25:47 2020
+function (main) line 107 deployment getStatus success
+Fri Jan 10 17:36:56 2020
+function (main) line 24 deploy func is :check
+Fri Jan 10 17:36:56 2020
+function (main) line 39 get access token success
+Fri Jan 10 17:36:56 2020
+function (main) line 91 request {
+   "botId" : 24927,
+   "deploymentId" : 43549
+}
+
+Fri Jan 10 17:36:56 2020
+function (unit_utterance) line 167 url :https://aip.baidubce.com/rpc/2.0/unit/deployment/getStatus?access_token=24.1bf54fe91341fb0ff1e1e9e1f5ce1532.2592000.1581241016.282335-15277778
+Fri Jan 10 17:36:57 2020
+function (main) line 98 json_ result {"result":{"createTime":"2020-01-10 17:24:41","modelVersion":"112","deploymentId":43549,"updateTime":"2020-01-10 17:26:51","region":"bj","deployStatus":"finished"},"error_msg":"ok","error_code":0}
+Fri Jan 10 17:36:57 2020
+function (main) line 107 deployment getStatus success
+Mon May 18 12:00:25 2020
+function (main) line 24 deploy func is :--help
+Mon May 18 12:00:25 2020
+function (main) line 41 get access token success

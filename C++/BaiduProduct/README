@@ -1,0 +1,21 @@
+#操作说明
+=================================
+make 
+生成可执行文件 test
+make clean
+删除可执行文件 test
+=================================
+./product add
+新增生产环境部署
+./product update 
+更新生产环境部署
+./product check
+检查生产环境状态
+=================================
+#文件说明
+1、baidu_conf.json中
+ botid 配置整型数 ，表示技能id，只可填写一个
+ region 配置字符串类型，表示部署地域:bj(华北)、su(华东)、gz(华南)只可填写一个部署地域
+ version 配置版本 v91 不需要v，直接写91
+2、DeploymentInfo
+ 是在新增生产环境部署后，得到的deploymentid(部署任务id)

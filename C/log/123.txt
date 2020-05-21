@@ -1,0 +1,5 @@
+2020-05-21 10:39:30 is running 10 55.550000
+2020-05-21 10:43:43 log.c2020-05-21 10:53:25 log.c2020-05-21 10:56:12 this is define 12020-05-21 10:57:03 this is define 12020-05-21 10:57:09 this is define 1
+2020-05-21 10:57:16 this is define 1
+2020-05-21 10:57:19 this is define 1
+2020-05-21 10:57:58 this is define 1 main 34

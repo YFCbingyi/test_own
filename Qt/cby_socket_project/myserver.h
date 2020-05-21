@@ -5,6 +5,7 @@
 #include <atomic>
 #include <thread>
 #define BACKLOG 10 /*多少等待连接控制*/
+#include <queue>
 
 namespace Ui {
 class myServer;
@@ -20,13 +21,21 @@ public:
 private:
     bool get_socket(int port);
 
-    std::string get_date(const std::string cmd,std::string params = "",int timeout = 5);
+    void get_date(const std::string cmd,std::string params = "",int timeout = 5);
 
     void print_json_data(std::string &str);
 
     void thd_recv();
     void parse(std::string &data);
     void compose(std::string &param);
+    
+    void Connect();
+    void DisConnect();
+    
+    void run();
+    
+    void sendmsg(std::string msg);
+    size_t send_with_pkg(std::string msg);
 private slots:
     void on_start_clicked();
 
@@ -37,6 +46,14 @@ private:
     int socketfd_;
     std::atomic<bool> is_connected_;
     std::thread recv_thd_;
+    
+    
+    std::thread main_thd_;
+    enum class EVENT{
+        ET_CONNECT,
+    };
+    
+    std::queue<EVENT> bq_;
 };
 
 #endif // MYSERVER_H
