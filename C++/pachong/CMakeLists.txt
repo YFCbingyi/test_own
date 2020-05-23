@@ -8,15 +8,18 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 ")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 ")
 
 message("===" ${CMAKE_BINARY_DIR})
-file( GLOB ALL_SOURCES ${CMAKE_BINARY_DIR}/../*.cpp ${CMAKE_BINARY_DIR}/../*.cxx)
 
-foreach( testsourcefile ${ALL_SOURCES} )
-    get_filename_component(fileName ${testsourcefile} NAME)
-    string(REPLACE ".cpp" "" testname ${fileName} )
-    string(REPLACE ".cxx" "" testname ${testname} )
-    
-    ADD_EXECUTABLE( ${testname} ${CMAKE_BINARY_DIR}/../${fileName} )
-endforeach(testsourcefile ${ALL_SOURCES} )
+
+ADD_EXECUTABLE( pachongtest
+    main.cc
+    Reptile.cc
+ )
+ TARGET_LINK_LIBRARIES(pachongtest
+  -lcurl
+  -lhtmlcxx
+  )
+
+
 
 
 #    This file will define the following variables:
