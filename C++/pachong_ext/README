@@ -1,0 +1,135 @@
+一、框架设计
+    基于  Request -> Response
+1、获取web首页信息
+
+2、首页信息- 页面总数，当前页面数，当前网站链接、下一个网站链接，二级web链接集合
+
+3、二级web信息- 页面总数，当前页面数、当前网站链接、下一个网站链接、三级图片链接集合。
+
+4、下载图片
+
+
+1、获取总页数、得到网页连接集合
+
+2、获取总页数、得到每个故事的连接集合
+
+3、获取总页数、以及每一页的链接集合
+
+4、获取每一页的图片链接集合
+
+二、设计实现
+
+class IHtml {
+public:
+    static size_t SaveHtmlData() {
+
+    } 
+    void getHtmlData(const std::string &url, std::string &result) {
+
+    }
+
+    static size_t DownloadPic() {
+
+    }
+
+    void download(const std::string& url,const std::string &path) {
+
+    }
+};
+
+class Dongman{
+public:
+    void start(std::string &xml) {
+        std::string result;
+        if(!getHtmlData(xml,result)) {
+            err;
+        }
+        parse(result);
+        for(auto t : _htmls) {
+            HomeHtml Html(xml);
+            t.start();
+        }
+    }
+private:
+    void parse(std::string &msg) {
+        //遍历获取homeHtml链接集合 
+        for(){
+            _htmls; 
+        }
+    }
+
+private:
+    std::vector<HomeHtml> _htmls;
+}
+
+class HomeHtml {
+public:
+    void start() {
+        std::string result;
+        if(!getHtmlData(xml,result)) {
+            err;
+        }
+        parse(result);
+        for(auto t : _storys) {
+            mkdir(name);
+            StoryHtml story(name,html);
+            t.start();
+        }
+    }
+private:
+    void parse(){
+        //遍历获取StoryHtml的链接集合
+        for() {
+            _storys;
+        }
+    }
+private:
+    std::map<std::string name,StoryHtml> _storys;
+};
+class StoryHtml {
+public:
+    void start() {
+        std::string result;
+        if(!getHtmlData(xml,result)) {
+            err;
+        }
+        parse(result);
+        for(auto t : _pages) {
+            PageHtml page(name,html)
+            t.start();
+        }
+    }
+private:
+    void parse() {
+        //遍历获取PageHtml的链接集合
+        for() {
+            _pages;
+        }
+    }
+private:
+    std::vector<PageHtml> _pages;
+};
+class PageHtml {
+public:
+    void start() {
+        
+        std::string result;
+        if(!getHtmlData(xml,result)) {
+            err;
+        }
+        parse(result);
+        for(auto t : _picture) {
+            std::string path = name+t;
+            download(t,path)
+        }
+    }
+private:
+    void parse() {
+        //遍历获取pageHtml下图片的链接集合
+        for() {
+            _picture;
+        }
+    }
+private:
+    std::vector<std::string> _picture;
+};
