@@ -1,3 +1,0 @@
-/home/cby/cby_project/test_own/C++/cmake/02/build/CMakeFiles/rebuild_cache.dir
-/home/cby/cby_project/test_own/C++/cmake/02/build/CMakeFiles/edit_cache.dir
-/home/cby/cby_project/test_own/C++/cmake/02/build/CMakeFiles/cmake_test.dir
