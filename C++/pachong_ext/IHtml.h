@@ -17,8 +17,8 @@ using namespace htmlcxx;
 class IHtml
 {
 public:
-    IHtml(/* args */);
-    ~IHtml();
+    IHtml(/* args */){}
+    ~IHtml(){}
 
     static size_t SaveWebsiteHtmlData(void *p_data, size_t size, size_t nmemb, void *stream)
     {
@@ -26,7 +26,6 @@ public:
         {
             return 0;
         }
-
         *(reinterpret_cast<std::string *>(stream)) += std::string((char *)p_data, size * nmemb);
 
         return size * nmemb;
@@ -71,6 +70,7 @@ public:
                 }
                 else
                 {
+                    result = oss_website_html_data;
                     shishi = 0;
                 }
                 curl_easy_cleanup(p_curl);
@@ -85,7 +85,7 @@ public:
 
     void download(const std::string &url, const std::string &path)
     {
-        
+        std::cout << "path "<<path << "  url "<<url << std::endl;
         std::ofstream download_file(path, std::ios_base::binary);
         CURL *p_curl = curl_easy_init();
         if (download_file.is_open())
