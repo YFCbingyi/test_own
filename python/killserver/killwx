@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+item=`ps -ax|grep "wechat"|awk '{print $1}'`
+
+if [ "${item}X" = "X" ]; then
+  echo "Can not find wechat process"
+else
+  echo ${item}
+  kill ${item}
+  if [ $? -eq 0 ]; then
+	echo "Success!"
+  else
+	echo "Failed!"
+  fi
+fi

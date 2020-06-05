@@ -1,0 +1,4 @@
+在.bashrc
+添加
+cd 
+. ~/welcome_boss.sh

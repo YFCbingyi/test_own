@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ "$RS_ROBOT" =~ "chenxing_" ]]; then
+	item=`ps -ax|grep "electron"|grep "node "|awk '{print $1}'`
+	#item=`ps -ax|grep "index.js" |grep "node"|awk '{print $1}'`
+elif [[ "$RS_ROBOT" =~ "xiaoxue_" ]]; then
+    item=`ps -ax |grep "python" |grep "expression.py"|awk '{print $1}'`
+elif [[ "$RS_ROBOT" =~ "alice_" ]]; then
+    echo "Alice UI"
+else
+  	echo "Unknown Robot"
+fi
+
+if [ "${item}X" = "X" ]; then
+  echo "Can not find UI process"
+else
+  echo ${item}
+  kill ${item}
+  if [ $? -eq 0 ]; then
+	echo "Success!"
+  else
+	echo "Failed!"
+  fi
+fi
