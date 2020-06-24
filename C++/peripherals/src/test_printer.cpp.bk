@@ -1,0 +1,21 @@
+#include "peripherals/Printers.h"
+
+#include <iostream>
+int main() {
+    Printers *pr = Printers::getInstance();
+	if(pr->hasPaper()) {
+		std::cout << "no 缺纸" << std::endl;	
+	} else {
+		std::cout << "缺指" << std::endl;
+	}
+
+    std::string ticketNO = "LL002";
+    std::string windowNo = "E04";
+    std::string serviceArea = "社会事务服务区";
+    std::string serviceNO = "E区";
+    std::string date = "2019-07-26";
+    std::string applicationPersoin = "孙奇珍";
+    std::string serviceName = "老年卡办理";
+    std::string qrData = "78482670-58ac-4f9b-b5e1-e63c3dc39bcb";
+    pr->print_Taian_service_center(ticketNO,windowNo,serviceArea,serviceNO,date,applicationPersoin,serviceName,1,qrData);
+}
