@@ -1,6 +1,0 @@
-/home/cby/cby_project/test_own/C++/elementFunc/01/build/CMakeFiles/rebuild_cache.dir
-/home/cby/cby_project/test_own/C++/elementFunc/01/build/CMakeFiles/edit_cache.dir
-/home/cby/cby_project/test_own/C++/elementFunc/01/build/CMakeFiles/2.dir
-/home/cby/cby_project/test_own/C++/elementFunc/01/build/CMakeFiles/1.dir
-/home/cby/cby_project/test_own/C++/elementFunc/01/build/CMakeFiles/3.dir
-/home/cby/cby_project/test_own/C++/elementFunc/01/build/CMakeFiles/4.dir
