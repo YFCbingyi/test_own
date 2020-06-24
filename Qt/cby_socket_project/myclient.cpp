@@ -6,6 +6,9 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <QDebug>
+#include <fcntl.h>
+#include <unistd.h>
+#include <netdb.h>
 
 myClient::myClient(QWidget *parent) :
     QWidget(parent),
@@ -26,12 +29,15 @@ void myClient::on_start_clicked()
     if(tx == "start") {
         std::string address = ui->address->text().toStdString();
         int port = ui->port->text().toInt();
-        sockfd_ = get_client(address,port);
-        if(sockfd_ > 0) {
-            ui->address->setDisabled(true);
-            ui->port->setDisabled(true);
-            ui->start->setText("stop");
-            recv_thd_ = std::thread(&myClient::thd_recv, this);
+        while(true) {
+            sockfd_ = get_client(address,port);
+            if(sockfd_ > 0) {
+                ui->address->setDisabled(true);
+                ui->port->setDisabled(true);
+                ui->start->setText("stop");
+                recv_thd_ = std::thread(&myClient::thd_recv, this);
+                break;
+            }    
         }
     } else if(tx == "stop") {
         if(sockfd_ > 0)
@@ -43,24 +49,39 @@ void myClient::on_start_clicked()
 
 }
 
-int myClient::get_client(std::string &address,int port) {
+int myClient::get_client(std::string &ip,int port) {
         int sockfd;
-        struct sockaddr_in serv_addr;
+            struct sockaddr_in serv_addr;
+        
+            sockfd = socket(AF_INET, SOCK_STREAM, 0);
+            if (sockfd < 0) {
+                qDebug("Socket error opening socket");
+                goto bail;
+            }
+            bzero((char *) &serv_addr, sizeof(serv_addr));
+            serv_addr.sin_family = AF_INET;
+            if (inet_aton(ip.c_str(), &serv_addr.sin_addr) == 0)
+            {
+                struct hostent *he;
+                he = gethostbyname(ip.c_str());
+                if (he == NULL)
+                    return -1;
+                memcpy(&serv_addr.sin_addr, he->h_addr, sizeof(struct in_addr));
+            }
+            serv_addr.sin_port = htons(port);
+            if (::connect(sockfd, (struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0) {
+                qDebug("%s Socket error connecting",ip.c_str());
+                goto bail;
+            }
+            return sockfd;
+        bail:
+            deleteClient();
+            return -1;
+}
 
-        sockfd = ::socket(AF_INET, SOCK_STREAM, 0);
-        if (sockfd < 0) {
-            qDebug() << "Socket error opening socket";
-            return -1;
-        }
-        ::bzero((char *) &serv_addr, sizeof(serv_addr));
-        serv_addr.sin_family = AF_INET;
-        ::inet_aton(address.c_str(), &serv_addr.sin_addr );
-        serv_addr.sin_port = htons(port);
-        if (::connect(sockfd, (struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0) {
-            qDebug("Socket error connecting\n");
-            return -1;
-        }
-        return sockfd;
+void myClient::deleteClient() {
+    if (sockfd_ > 0)
+        ::close(sockfd_);
 }
 
 void myClient::on_pushButton_clicked()

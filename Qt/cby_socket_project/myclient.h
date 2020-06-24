@@ -22,6 +22,7 @@ private slots:
     void on_pushButton_clicked();
 
 private:
+    void deleteClient() ;
     int get_client(std::string &address,int port);
     void thd_recv();
 private:
