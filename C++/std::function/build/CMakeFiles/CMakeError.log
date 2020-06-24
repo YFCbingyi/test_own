@@ -1,0 +1,26 @@
+Detecting C [-std=c11] compiler features failed to compile with the following output:
+Change Dir: /home/cby/cby_project/test_own/C++/std::function/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_193e2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_193e2.dir/build.make CMakeFiles/cmTC_193e2.dir/build
+make[1]: Entering directory '/home/cby/cby_project/test_own/C++/std::function/build/CMakeFiles/CMakeTmp'
+CMakeFiles/cmTC_193e2.dir/build.make:64: *** target pattern contains no '%'。 停止。
+make[1]: Leaving directory '/home/cby/cby_project/test_own/C++/std::function/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_193e2/fast' failed
+make: *** [cmTC_193e2/fast] Error 2
+
+
+
+Detecting CXX [-std=c++14] compiler features failed to compile with the following output:
+Change Dir: /home/cby/cby_project/test_own/C++/std::function/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d9c91/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d9c91.dir/build.make CMakeFiles/cmTC_d9c91.dir/build
+make[1]: Entering directory '/home/cby/cby_project/test_own/C++/std::function/build/CMakeFiles/CMakeTmp'
+CMakeFiles/cmTC_d9c91.dir/build.make:64: *** target pattern contains no '%'。 停止。
+make[1]: Leaving directory '/home/cby/cby_project/test_own/C++/std::function/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d9c91/fast' failed
+make: *** [cmTC_d9c91/fast] Error 2
+
+
+
