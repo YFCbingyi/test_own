@@ -1,0 +1,1 @@
+/usr/bin/c++    -O0    CMakeFiles/2.dir/01/2.cpp.o  -o 2 -rdynamic -lpthread 
