@@ -1,0 +1,24 @@
+sizeof FileHead :14
+sizeof InfoHead :40
+BMP Type 	 :BM
+BMP Size 	 :48018
+BMP Reserved1 	 :0
+BMP Reserved2 	 :0
+BMP OffBits 	 :138
+BMP FileHeader Size 	:124
+BMP Width 	:126
+BMP Height 	:126
+BMP Planes 	:1
+BMP BitCount 	:24
+BMP Compression 	:0
+BMP ImageSize 	:47880
+BMP XPelsPerMeter 	:0
+BMP YPelsPerMeter 	:0
+BMP ClrUsed 	:0
+BMP ClrImportant 	:0
+
+
+ offset:0
+
+
+ line_size:378
