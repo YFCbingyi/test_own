@@ -25,7 +25,6 @@ public:
 			std::string path = _name +"/"+ t.substr(t.find_last_of('/')+1);
 			thread_pool.appendTask(std::bind(PageHtml::download,t,path));
 			std::this_thread::sleep_for(std::chrono::milliseconds(10));
-			download(t,path);
 		}
 		thread_pool.stop();
 	}

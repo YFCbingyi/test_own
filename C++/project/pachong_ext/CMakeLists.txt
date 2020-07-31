@@ -34,6 +34,7 @@ endif()
 TARGET_LINK_LIBRARIES(${PROJECT_NAME}
   curl
   htmlcxx
+  pthread
   )
 
 

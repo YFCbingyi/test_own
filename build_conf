@@ -1,0 +1,5 @@
+1、cmake ; make
+
+2、cmake -G Ninja; ninja
+    依赖：sudo apt install ninja-build
+
