@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/binary.dir/src/main.cpp.o CMakeFiles/binary.dir/src/MyTime.cpp.o  -o binary -rdynamic -lcurl -ljsoncpp -lpthread -lhtmlcxx 

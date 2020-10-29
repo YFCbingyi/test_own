@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Signal.h
+functional
+-
+map
+-
+mutex
+-
+
+../include/Task.h
+Signal.h
+../include/Signal.h
+
+/home/cby/cby_project/test_own/C++/learn/Signal/src/Task.cpp
+Task.h
+/home/cby/cby_project/test_own/C++/learn/Signal/src/Task.h
+iostream
+-
+
+/home/cby/cby_project/test_own/C++/learn/Signal/src/main.cpp
+iostream
+-
+thread
+-
+chrono
+-
+Task.h
+/home/cby/cby_project/test_own/C++/learn/Signal/src/Task.h
+

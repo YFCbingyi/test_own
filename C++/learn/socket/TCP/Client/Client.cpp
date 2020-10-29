@@ -25,7 +25,7 @@ myClient::~myClient()
 
 bool myClient::start(std::string &ip, int port)
 {
-    std::cout << "ready connect " << ip << " port " << port << std::endl;
+    std::cout << "ready connect " << ip << " port " << port << i << std::endl;
     socket_ = get_client(ip, port);
     if (socket_ > 0)
     {
@@ -59,6 +59,7 @@ int myClient::get_client(std::string &address, int port)
     serv_addr.sin_port = htons(port);
     if (::connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
     {
+        close(sockfd);
         return -1;
     }
     return sockfd;
@@ -68,12 +69,13 @@ int main(int argc, char **argv)
 {
     std::string ip("127.0.0.1");
     int port = 8000;
-    if(argc == 3) {
+    if (argc == 3)
+    {
         ip = argv[1];
         // std::string a = argv[2];
         port = std::stoi(std::string(argv[2]));
     }
     myClient client;
-    client.start(ip,port);
+    client.start(ip, port);
     return 0;
 }

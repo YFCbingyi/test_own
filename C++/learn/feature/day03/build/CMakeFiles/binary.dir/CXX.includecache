@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/MyTime.h
+
+/home/cby/cby_project/test_own/C++/learn/feature/day03/src/MyTime.cpp
+MyTime.h
+/home/cby/cby_project/test_own/C++/learn/feature/day03/src/MyTime.h
+iostream
+-
+
+/home/cby/cby_project/test_own/C++/learn/feature/day03/src/main.cpp
+iostream
+-
+MyTime.h
+/home/cby/cby_project/test_own/C++/learn/feature/day03/src/MyTime.h
+

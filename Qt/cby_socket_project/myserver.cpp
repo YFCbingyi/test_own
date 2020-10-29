@@ -194,8 +194,8 @@ void myServer::get_date(const std::string cmd, std::string params,int timeout) {
         root["text"] = params;
         sendmsg(root.toStyledString());
     } else if(cmd == "download") {
-        CloudServer cloud;
-        send_with_pkg(cloud.download_face_data());
+//        CloudServer cloud;
+//        send_with_pkg(cloud.download_face_data());
     } else {
         sendmsg(root.toStyledString());
     }

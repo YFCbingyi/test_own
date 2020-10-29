@@ -1,0 +1,3 @@
+/home/cby/cby_project/test_own/C++/learn/namespace/build/CMakeFiles/edit_cache.dir
+/home/cby/cby_project/test_own/C++/learn/namespace/build/CMakeFiles/rebuild_cache.dir
+/home/cby/cby_project/test_own/C++/learn/namespace/build/CMakeFiles/binary.dir
